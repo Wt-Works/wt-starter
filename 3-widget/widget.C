@@ -2,52 +2,15 @@
 // Author: I. Lazaridis info@lazaridis.com
 
 #include <Wt/WApplication>
-#include <Wt/WBreak>
-#include <Wt/WContainerWidget> // http://redmine.webtoolkit.eu/issues/2822
-#include <Wt/WLineEdit>
-#include <Wt/WPushButton>
-#include <Wt/WText>
 
 #include "../0/WServer.h"
 
+#include "SayWidget.h"
+
 
 using namespace Wt;
+using Ex::SayWidget;
 using Ma::WRun;
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-class SayWidget : public WContainerWidget
-{
-public:
-  SayWidget(WContainerWidget* parent);
-
-private:
-  WLineEdit* input;
-  WText* output;
-  void say();
-};
-
-SayWidget::SayWidget(WContainerWidget* parent) : WContainerWidget(parent)
-{
-  new WText ("What to say? ", parent);
-
-  input = new WLineEdit("hi", parent);
-  input->setFocus();
-
-  WPushButton *button = new WPushButton ("Say", parent);
-  button->setMargin(5, Left);
-  button->clicked().connect(this, &SayWidget::say);
-
-  new WBreak(parent);
-
-  output = new WText(parent);
-
-}
-
-void SayWidget::say()
-{
-  output->setText("Saying: " + input->text());
-}
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
