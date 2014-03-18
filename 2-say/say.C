@@ -1,4 +1,4 @@
-// simple user interaction, simple reusable widget
+// simple user interaction, simple widget
 // Author: I. Lazaridis info@lazaridis.com
 
 #include <Wt/WApplication>
@@ -37,20 +37,20 @@ SayApplication::SayApplication(const WEnvironment& env) : WApplication(env)
 {
   setTitle("Say!");
 
-  WContainerWidget* rootWidget = this->root();
+  WContainerWidget* parent = this->root();
 
-  new WText ("What to say? ", rootWidget);
+  new WText ("What to say? ", parent);
 
-  input = new WLineEdit("hi", rootWidget);
+  input = new WLineEdit("hi", parent);
   input->setFocus();
 
-  WPushButton *button = new WPushButton("Say", rootWidget);
+  WPushButton *button = new WPushButton("Say", parent);
   button->setMargin(5, Left);
   button->clicked().connect(this, &SayApplication::say);
 
-  new WBreak(rootWidget);
+  new WBreak(parent);
 
-  output = new WText(rootWidget);
+  output = new WText(parent);
 
 }
 

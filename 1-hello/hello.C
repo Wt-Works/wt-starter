@@ -1,19 +1,11 @@
-/*
- * Author: I. Lazaridis (info@lazaridis.com)
- *
- */
-
+// Author: I. Lazaridis (info@lazaridis.com)
 
 #include <Wt/WApplication>
 #include <Wt/WContainerWidget> //ISSUE: WText does not include this header
 #include <Wt/WText>
 #include "../0/WServer.h"
 
-using Wt::WApplication;
-using Wt::WEnvironment;
-using Wt::WContainerWidget;
-using Wt::WText;
-
+using namespace Wt;
 using Ma::WRun;
 
 
