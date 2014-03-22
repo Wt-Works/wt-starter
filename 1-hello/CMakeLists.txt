@@ -14,7 +14,7 @@ link_directories(${WT_INSTALL_DIR}/lib)
 
 ## PROJECT SPECIFIC ##
 
-PROJECT(HELLO)
+project(hello)
 
 ## SOURCES ##
 
@@ -23,7 +23,7 @@ file(GLOB_RECURSE sources *.c*)
 
 ## TARGET ##
 
-set(TARGET helo.wt)
+set(TARGET ${PROJECT_NAME}.wt)
 add_executable(${TARGET} ${sources} )
 
 ## LINKING ##

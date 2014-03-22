@@ -14,7 +14,7 @@ link_directories(${WT_INSTALL_DIR}/lib)
 
 ## PROJECT SPECIFIC ##
 
-PROJECT(LAYOUT)
+project(layout)
 
 ## SOURCES ##
 
