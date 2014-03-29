@@ -1,16 +1,12 @@
-/*
- * Copyright (C) 2010 Emweb bvba, Kessel-Lo, Belgium.
- *
- * See the LICENSE file for terms of use.
- */
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 #include <Wt/WApplication>
 #include <Wt/WContainerWidget>
-#include <Wt/WServer>
 #include <Wt/WBootstrapTheme>
 
-#include <Wt/Auth/AuthModel>
-#include <Wt/Auth/AuthWidget>
-#include <Wt/Auth/PasswordService>
+//#include <Wt/Auth/AuthModel>
+//#include <Wt/Auth/AuthWidget>
+//#include <Wt/Auth/PasswordService>
 
 #include "DbSession.h"
 #include "AuthManager.h"
@@ -20,33 +16,6 @@
 
 using namespace Wt;
 using namespace Wt::Auth;
-using Wt::Auth::Identity;
-//using Ma::WRun;
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-//class MyAuthWidget : public AuthWidget
-//{
-//public:
-//  MyAuthWidget (const AuthService& baseAuth, AbstractUserDatabase& users,
-//              Login& login, WContainerWidget* parent=0)
-//             :AuthWidget(baseAuth, users, login, parent)
-//  {
-//    model()->addPasswordAuth(AuthManager::passwordAuth());
-//    model()->addOAuth(AuthManager::oAuth());
-//    setRegistrationEnabled(true);
-//    processEnvironment();
-//  }
-
-//  MyAuthWidget (const AuthManager& am, WContainerWidget* parent=0)
-//             :AuthWidget(am.auth(), am.users(), am.login(), parent)
-//  {
-//    model()->addPasswordAuth(am.passwordAuth());
-//    model()->addOAuth(am.oAuth());
-//    setRegistrationEnabled(true);
-//    processEnvironment();
-//  }
-//};
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -69,8 +38,6 @@ public:
 
     useStyleSheet("css/style.css");
 
-    //pass an auth object
-    //new MyAuthWidget(AuthManager::auth(), auth.Users(), auth.getLogin(), root());
     new MyAuthWidget(auth, root());
   }
 

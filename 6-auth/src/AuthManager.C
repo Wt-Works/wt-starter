@@ -1,40 +1,25 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-#include "Wt/Auth/HashFunction"
+#include <Wt/Auth/HashFunction>
 
-#include "Wt/Auth/PasswordStrengthValidator"
-#include "Wt/Auth/PasswordVerifier"
-#include "Wt/Auth/GoogleService"
-#include "Wt/Auth/FacebookService"
-#include "Wt/Auth/Dbo/AuthInfo"
-#include "Wt/Auth/Dbo/UserDatabase"
+#include <Wt/Auth/PasswordStrengthValidator>
+#include <Wt/Auth/PasswordVerifier>
+#include <Wt/Auth/GoogleService>
+#include <Wt/Auth/FacebookService>
+#include <Wt/Auth/Dbo/AuthInfo>
+#include <Wt/Auth/Dbo/UserDatabase>
 
 #include "AuthManager.h"
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 using namespace std;
 using namespace Wt;
 
-namespace {
-
-  class MyOAuth : public vector<const Auth::OAuthService *>
-  {
-  public:
-    ~MyOAuth()
-    {
-      for (unsigned i = 0; i < size(); ++i)
-        delete (*this)[i];
-    }
-  };
-
-  static Auth::AuthService baseService;
-  static Auth::PasswordService pwdService(baseService);
-  static MyOAuth oAuthServices;
-
-}
-
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Auth::AuthService     AuthManager::baseService;
+Auth::PasswordService AuthManager::pwdService(baseService);
+Auth::OAuthServices   AuthManager::oAuthServices;
 
 AuthManager::AuthManager(Dbo::Session& _db)
   :db(_db)
